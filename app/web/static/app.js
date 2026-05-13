@@ -2,6 +2,15 @@ const metricsEl = document.querySelector('#metrics');
 const exceptionsEl = document.querySelector('#exceptions');
 const briefEl = document.querySelector('#brief');
 const briefTitle = document.querySelector('#briefTitle');
+const disputesEl = document.querySelector('#disputes');
+const auditEl = document.querySelector('#audit');
+const sessionEl = document.querySelector('#session');
+
+async function demoLogin(){
+  const response = await fetch('/api/v1/auth/demo-login', { method: 'POST' });
+  const user = await response.json();
+  sessionEl.innerHTML = `<strong>${user.name}</strong><span>${user.role} · ${user.tenant_id}</span>`;
+}
 
 async function loadDashboard(){
   const response = await fetch('/api/v1/dashboard');
@@ -11,6 +20,19 @@ async function loadDashboard(){
       <span>${metric.label}</span>
       <strong>${metric.value}</strong>
       <small>${metric.delta}</small>
+    </div>
+  `).join('');
+  disputesEl.innerHTML = data.disputes.map(item => `
+    <div class="row-item">
+      <strong>${item.id} · ${item.ota}</strong>
+      <span>${item.amount} · ${item.status}</span>
+      <small>${item.owner}</small>
+    </div>
+  `).join('');
+  auditEl.innerHTML = data.audit_events.map(item => `
+    <div class="row-item">
+      <strong>${item.time} · ${item.actor}</strong>
+      <span>${item.event}</span>
     </div>
   `).join('');
 }
@@ -46,4 +68,6 @@ async function runDemo(){
 }
 
 document.querySelector('#runDemo').addEventListener('click', runDemo);
+document.querySelector('#loginBtn').addEventListener('click', demoLogin);
+demoLogin();
 loadDashboard();
