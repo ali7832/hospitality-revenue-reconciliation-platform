@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RevenueOps AI</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">RevenueOps AI for Hospitality</p>
+        <h1>Enterprise OTA reconciliation command center</h1>
+        <p class="subcopy">Detect commission leakage, payout mismatches, and dispute risk across hotel groups before month close.</p>
+        <div class="actions">
+          <button id="runDemo">Run executive demo</button>
+          <a href="/docs">API docs</a>
+        </div>
+      </div>
+      <div class="login-card">
+        <p class="eyebrow">Operator Access</p>
+        <h2>Finance Workspace</h2>
+        <input value="finance.lead@hotelgroup.ai" />
+        <input value="Enterprise Demo" type="password" />
+        <button>Sign in to command center</button>
+      </div>
+    </section>
+
+    <section class="metrics" id="metrics"></section>
+
+    <section class="grid">
+      <article class="panel wide">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Reconciliation Intelligence</p>
+            <h2>Exception queue</h2>
+          </div>
+          <span>Live demo mode</span>
+        </div>
+        <div id="exceptions" class="exceptions"></div>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Executive Brief</p>
+        <h2 id="briefTitle">Ready for analysis</h2>
+        <p id="brief">Run the demo to generate a finance-ready reconciliation summary.</p>
+      </article>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
