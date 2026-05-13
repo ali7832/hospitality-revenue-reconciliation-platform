@@ -76,3 +76,20 @@ def demo_dashboard_metrics() -> list[dict[str, str]]:
         {"label": "Open Exceptions", "value": "47", "delta": "-18 today", "tone": "warning"},
         {"label": "SLA Compliance", "value": "98.7%", "delta": "+2.2%", "tone": "positive"},
     ]
+
+
+def demo_disputes() -> list[dict[str, str]]:
+    return [
+        {"id": "DSP-9182", "ota": "Expedia", "amount": "$95", "status": "Evidence requested", "owner": "Finance Ops"},
+        {"id": "DSP-9183", "ota": "Agoda", "amount": "$72.50", "status": "Contract review", "owner": "Revenue Analyst"},
+        {"id": "DSP-9184", "ota": "Airbnb", "amount": "$525", "status": "Escalated", "owner": "Director Finance"},
+    ]
+
+
+def demo_audit_events() -> list[dict[str, str]]:
+    return [
+        {"time": "09:15", "actor": "RevenueOps AI", "event": "Ingested OTA settlement batch for May 2026"},
+        {"time": "09:17", "actor": "Sarah Coleman", "event": "Approved Expedia dispute package DSP-9182"},
+        {"time": "09:22", "actor": "RevenueOps AI", "event": "Flagged Airbnb payout variance as critical"},
+        {"time": "09:31", "actor": "Auditor Console", "event": "Exported reconciliation evidence bundle"},
+    ]
