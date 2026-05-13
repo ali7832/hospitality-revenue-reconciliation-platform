@@ -8,11 +8,16 @@
 </head>
 <body>
   <main class="shell">
+    <nav class="topbar">
+      <div><strong>RevenueOps AI</strong><span>Hospitality Finance Cloud</span></div>
+      <div id="session" class="session">Demo session</div>
+    </nav>
+
     <section class="hero">
       <div>
         <p class="eyebrow">RevenueOps AI for Hospitality</p>
         <h1>Enterprise OTA reconciliation command center</h1>
-        <p class="subcopy">Detect commission leakage, payout mismatches, and dispute risk across hotel groups before month close.</p>
+        <p class="subcopy">Detect commission leakage, payout mismatches, dispute risk, and settlement gaps across hotel groups before month close.</p>
         <div class="actions">
           <button id="runDemo">Run executive demo</button>
           <a href="/docs">API docs</a>
@@ -23,7 +28,8 @@
         <h2>Finance Workspace</h2>
         <input value="finance.lead@hotelgroup.ai" />
         <input value="Enterprise Demo" type="password" />
-        <button>Sign in to command center</button>
+        <button id="loginBtn">Sign in to command center</button>
+        <small>RBAC demo: finance lead, executive, revenue operator, auditor.</small>
       </div>
     </section>
 
@@ -44,6 +50,19 @@
         <p class="eyebrow">Executive Brief</p>
         <h2 id="briefTitle">Ready for analysis</h2>
         <p id="brief">Run the demo to generate a finance-ready reconciliation summary.</p>
+      </article>
+    </section>
+
+    <section class="grid lower">
+      <article class="panel">
+        <p class="eyebrow">Dispute Operations</p>
+        <h2>Active recovery queue</h2>
+        <div id="disputes" class="list"></div>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Audit Timeline</p>
+        <h2>Evidence trail</h2>
+        <div id="audit" class="list"></div>
       </article>
     </section>
   </main>
