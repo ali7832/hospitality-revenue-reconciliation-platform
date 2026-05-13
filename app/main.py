@@ -7,7 +7,8 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
 from app.models import ReconciliationRequest
-from app.services import demo_dashboard_metrics, run_reconciliation
+from app.security import demo_login
+from app.services import demo_dashboard_metrics, demo_disputes, demo_audit_events, run_reconciliation
 
 BASE_DIR = Path(__file__).resolve().parent
 WEB_DIR = BASE_DIR / "web"
@@ -36,12 +37,19 @@ def health() -> dict[str, str]:
     return {"status": "ok", "service": settings.app_name, "environment": settings.environment}
 
 
+@app.post("/api/v1/auth/demo-login")
+def auth_demo_login():
+    return demo_login()
+
+
 @app.get("/api/v1/dashboard")
 def dashboard() -> dict[str, object]:
     return {
         "tenant_id": settings.demo_tenant_id,
         "metrics": demo_dashboard_metrics(),
         "risk_regions": ["OTA commission drift", "Delayed VCC settlement", "Manual dispute aging"],
+        "disputes": demo_disputes(),
+        "audit_events": demo_audit_events(),
     }
 
 
